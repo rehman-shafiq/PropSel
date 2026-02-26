@@ -14,9 +14,9 @@ const LandingPage: React.FC = () => {
     <div>
       <Navbar />
       <Hero />
-      <section className="py-5 bg-light">
+      <section className="py-5 " style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
         <div className="container-fluid px-4">
-          <h2 className="fw-bold mb-4">Featured Properties</h2>
+          <h2 className="fw-bold mb-4 text-light">Featured Properties</h2>
           <div className="row">
             {properties.map(property => (
               <div className="col-lg-3 col-md-6 mb-4" key={property.id}>
@@ -26,9 +26,9 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="py-5">
+      <section className="py-5  " style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
         <div className="container-fluid px-4">
-          <h2 className="fw-bold mb-4">Find Top Rated Agents</h2>
+          <h2 className="fw-bold mb-4 text-light">Find Top Rated Agents</h2>
           <div className="row">
             {agents.map(agent => (
               <div className="col-lg-3 col-md-6 mb-4" key={agent.id}>
@@ -38,12 +38,12 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="py-5 bg-light">
+      <section className="py-5" style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
         <div className="container-fluid px-4">
-          <h2 className="fw-bold mb-4 text-center">Our Services</h2>
-          <div className="row">
+          <h2 className="fw-bold mb-4 text-center text-light">Our Services</h2>
+          <div className="row justify-content-center">
             {services.map(service => (
-              <div className="col-lg-3 col-md-6 mb-4" key={service.id}>
+              <div className="col-lg-3 col-md-6 mb-4 " key={service.id}>
                 <ServiceCard service={service} />
               </div>
             ))}

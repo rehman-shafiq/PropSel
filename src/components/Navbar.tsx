@@ -9,18 +9,18 @@ const PropSelNavbar: React.FC = () => {
     const handleShow = () => setShowOffcanvas(true);
     return (
         <Navbar
-            expand="lg"
+            expand="lg"    
             variant="dark"
             className="py-4 border-bottom sticky-top shadow-sm w-100"
-            style={{ backgroundColor: '#1C2531', position: 'relative', color: '#96999C' }}
+            style={{ backgroundColor: '#212529', position: 'relative', color: '#96999C' }}
         >
             <Container fluid className="px-4 d-flex justify-content-between align-items-center">
 
                 {/* 1. Mobile Toggle & Left Side (Grouped for desktop) */}
-                <div className="d-flex align-items-center border-white">
+                <div className="d-flex align-items-center border-white ">
                     <Button 
                         variant="link" 
-                        className="border-0 shadow-none me-2 p-0" 
+                        className="border-0 shadow-none me-2 p-0 d-lg-none" 
                         style={{ color: 'white' }}
                         onClick={handleShow}
                         aria-label="Toggle navigation"
@@ -54,31 +54,31 @@ const PropSelNavbar: React.FC = () => {
                         height="35"
                     />
                 </Navbar.Brand>
-
-                {/* 3. Right Side (Sign In) */}
+                                {/* 3. Right Side (Sign In) */}
                 <div className="d-flex align-items-center">
                   
                     
                     <Button
-                        className="rounded-pill px-4 me-4 py-2 fw-bold"
+                        className="rounded-pill px-4 me-4 py-2  d-flex d-lg-block"
                         style={{
-                            backgroundColor: 'white',
-                            color: '#006aff',
-                            border: '2px solid #006aff',
-                            fontSize: '14px'
+                            backgroundColor: '#006aff',
+                            color: 'white',
+                            fontSize: '12px'
                         }}
-                        onMouseOver={(e) => {
+                      /*   onMouseOver={(e) => {
                             e.currentTarget.style.backgroundColor = '#006aff';
                             e.currentTarget.style.color = 'white';
                         }}
                         onMouseOut={(e) => {
                             e.currentTarget.style.backgroundColor = 'white';
                             e.currentTarget.style.color = '#006aff';
-                        }}
+                        }} */
                     >
-                        Sign In
+                        Register
                     </Button>
                 </div>
+
+
 
             </Container>
 
@@ -88,7 +88,7 @@ const PropSelNavbar: React.FC = () => {
                 onHide={handleClose} 
                 placement="start"
                 className="w-100"
-                style={{ backgroundColor: '#1C2531', color: 'white' }}
+                style={{ backgroundColor: '#212529', color: 'white' }}
             >
                 <Offcanvas.Header className="border-bottom border-secondary">
                     <Offcanvas.Title>
@@ -106,29 +106,15 @@ const PropSelNavbar: React.FC = () => {
                     >
                         ×
                     </Button>
+                    
                 </Offcanvas.Header>
                 <Offcanvas.Body className="p-0">
                     <Nav className="flex-column p-3">
                         <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
                             <strong>Buy</strong>
-                        </Nav.Link>
-                        <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
-                            <strong>Rent</strong>
-                        </Nav.Link>
-                        <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
-                            <strong>Sell</strong>
-                        </Nav.Link>
-                        <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
-                            <strong>Home Loans</strong>
-                        </Nav.Link>
+                        </Nav.Link>                 
                         <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
                             <strong>Find an Agent</strong>
-                        </Nav.Link>
-                        <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
-                            <strong>Manage Rentals</strong>
-                        </Nav.Link>
-                        <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
-                            <strong>Advertise</strong>
                         </Nav.Link>
                         <Nav.Link href="#" className="text-white py-3" onClick={handleClose}>
                             <strong>Help</strong>

@@ -29,7 +29,7 @@ export const agents: IAgent[] = [
 export const services: IService[] = [
   { id: 1, title: 'Buy a home', description: 'Find your place with an immersive photo experience and the most listings, including things you won\'t find anywhere else.', link: 'Find a local agent', icon: 'Home' },
   { id: 2, title: 'Rent a home', description: 'We\'re creating a seamless online experience – from shopping on the largest rental network, to applying, to paying rent.', link: 'Find rentals', icon: 'Key' },
-  { id: 3, title: 'Sell a home', description: 'No matter what path you take to sell your home, we can help you navigate a successful sale.', link: 'See your options', icon: 'TrendingUp' },
+  { id: 3, title: 'Sell a home', description: 'No matter what path you take to sell your home, we can help you navigate a successful sale. We\'ll guide you every step of the way.', link: 'See your options', icon: 'TrendingUp' },
 ];
 
 export const faqs: IFAQ[] = [

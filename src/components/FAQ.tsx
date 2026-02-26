@@ -3,9 +3,9 @@ import { faqs } from './data';
 
 const FAQ: React.FC = () => {
   return (
-    <section className="py-5">
+    <section className="py-5" style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
       <div className="container-fluid px-4">
-        <h2 className="text-center mb-4">Frequently Asked Questions</h2>
+        <h2 className="text-center mb-4 text-light">Frequently Asked Questions</h2>
         <div className="accordion" id="faqAccordion">
           {faqs.map((faq, index) => (
             <div className="accordion-item" key={faq.id}>
