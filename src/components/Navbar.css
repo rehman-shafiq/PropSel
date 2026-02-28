@@ -1,0 +1,25 @@
+/* 1. Arrow (Caret) ko remove karne ke liye */
+.custom-nav-dropdown.dropdown-toggle::after,
+.custom-nav-dropdown .dropdown-toggle::after {
+    display: none !important;
+}
+
+/* 2. Text color ko white fix karne ke liye */
+#buy-nav-dropdown {
+    color: white !important;
+}
+
+/* 3. Hover ya Open hone par bhi text white rahe (Bootstrap fix) */
+.nav-item.show > .nav-link.custom-nav-dropdown,
+.custom-nav-dropdown:hover {
+    color: white !important;
+}
+
+/* 4. Dropdown menu ko image jaisa clean banane ke liye */
+.dropdown-menu {
+    border-radius: 0 !important;
+    border: none !important;
+    border-top: 1px solid #ddd !important; /* Wahi line jo image mein hai */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    margin-top: 0 !important;
+}

@@ -1,0 +1,15 @@
+/* Arrow icon ko color dene ke liye (agar dark background hai) */
+.accordion-button::after {
+  filter: brightness(0) invert(1); /* Arrows ko white karne ke liye */
+}
+
+/* Jab accordion band ho (collapsed) toh arrow rotate ho jaye */
+.accordion-button.collapsed::after {
+  transform: rotate(0deg);
+}
+
+/* Jab accordion khula ho */
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg);
+  background-image: var(--bs-accordion-btn-icon); /* Default icon */
+}

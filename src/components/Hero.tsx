@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 
 const Hero: React.FC = () => {
   return (
-    <section className="hero-section position-relative" style={{
+    <section className="hero-section position-relative border-" style={{
       backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',

@@ -9,7 +9,7 @@ const RealtorCTA: React.FC = () => {
           <div className="col-md-8">
             <h2 className="display-5 fw-bold mb-3">Become a Certified Realtor</h2>
             <p className="lead mb-4">Join the PropSel network today.</p>
-            <button className="btn btn-lg rounded-pill px-4" style={{ backgroundColor: '#006AFF', color: 'white' }}>Join Now</button>
+            <button className="btn btn-lg rounded-pill px-4 btn-success">Join Now</button>
           </div>
         </div>
       </div>

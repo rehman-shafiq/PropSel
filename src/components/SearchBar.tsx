@@ -30,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <div className="position-relative" ref={wrapperRef}>
       <div
-        className="d-flex align-items-center bg-white rounded-pill shadow-sm"
+        className="d-flex align-items-center bg-white rounded-pill shadow-sm btn-success"
         style={{
           border: focused ? '2px solid #007bff' : '2px solid transparent',
           boxShadow: focused ? '0 0 8px rgba(0,123,255,0.4)' : 'none'
@@ -38,7 +38,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       >
         <input
           type="text"
-          className="form-control border-0 rounded-pill px-4 py-2 flex-grow-1"
+          className="form-control border-0 rounded-pill p-3 flex-grow-1 "
           placeholder={placeholder}
           onFocus={() => setFocused(true)}
           onBlur={() => {
@@ -47,7 +47,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           style={{
             borderRadius: '50px',
             outline: 'none',
-            boxShadow: 'none'
+            boxShadow: 'none',
           }}
         />
         <Search className="me-3 text-muted" />

@@ -10,14 +10,9 @@ const Footer: React.FC = () => {
         {/* Main footer links */}
         <div className="row mb-4">
           <div className="col-lg-2 col-md-3 col-sm-6 mb-4">
-            <h6 className="fw-bold mb-3 text-white">Real Estate</h6>
+            {/* <h6 className="fw-bold mb-3 text-white">Real Estate</h6> */}
             <ul className="list-unstyled">
-              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Buy</a></li>
-              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Rent</a></li>
-              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Sell</a></li>
-              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Home Loans</a></li>
-              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Agent finder</a></li>
-            </ul>
+               </ul>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-6 mb-4">
             <h6 className="fw-bold mb-3 text-white">Rentals</h6>
@@ -26,6 +21,12 @@ const Footer: React.FC = () => {
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Apartments for rent</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Houses for rent</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">All Rental Listings</a></li>
+               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Buy</a></li>
+              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Rent</a></li>
+              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Sell</a></li>
+              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Home Loans</a></li>
+              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Agent finder</a></li>
+          
             </ul>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-6 mb-4">
@@ -65,15 +66,14 @@ const Footer: React.FC = () => {
         <div className="row align-items-center mb-4">
           <div className="col-md-6">
             <div className="d-flex gap-3">
-              <img src={appstore} alt="App Store" className="img-fluid" />
-              <img src={googleplay} alt="Google Play" className="img-fluid" />
+          {/*     <img src={appstore} alt="App Store" className="img-fluid" />
+              <img src={googleplay} alt="Google Play" className="img-fluid" /> */}
             </div>
           </div>
           <div className="col-md-6 text-end">
             <div className="d-flex justify-content-end gap-3">
               <FaFacebook size={24} className="text-white" />
               <FaInstagram size={24} className="text-white" />
-              <FaTwitter size={24} className="text-white" />
               <FaYoutube size={24} className="text-white" />
             </div>
           </div>
