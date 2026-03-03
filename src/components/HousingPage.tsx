@@ -61,7 +61,7 @@ const HousingPage: React.FC = () => {
       
       {/* Top Filter Bar */}
       <div className=" border-bottom py-4 px-3 shadow-sm sticky-top mt-5" style={{ zIndex: 1000  , backgroundColor: 'rgb(31, 41, 55)' }}>
-        <Row className="gx-2 align-items-center mt-3" >
+        <Row className="gx-2 align-items-center mt-3 " >
           <Col md={3}>
             <Form.Control 
               placeholder="Address, city, ZIP..." 
@@ -69,6 +69,7 @@ const HousingPage: React.FC = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </Col>
+          
           <Col xs="auto">
             <Form.Select onChange={(e) => setMaxPrice(Number(e.target.value))}>
               <option value="1000000">Any Price</option>
@@ -78,7 +79,7 @@ const HousingPage: React.FC = () => {
           </Col>
           <Col xs="auto">
             <Form.Select onChange={(e) => setHType(e.target.value)}>
-              <option value="All">Home Type</option>
+              <option value="All ">Home Type</option>
               <option value="House">House</option>
               <option value="Flat">Flat</option>
             </Form.Select>
