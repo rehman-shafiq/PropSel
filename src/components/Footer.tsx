@@ -1,18 +1,16 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import googleplay from '../assets/google-play-badge.svg';
-import appstore from '../assets/app-store-badge.svg';
+import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
+/* import googleplay from '../assets/google-play-badge.svg';
+import appstore from '../assets/app-store-badge.svg'; */
 
 const Footer: React.FC = () => {
   return (
     <footer className=" border-top py-5 " style={{ backgroundColor: 'rgb(31, 41, 55)', color: 'white' }}>
       <div className="container-fluid px-4">
-        {/* Main footer links */}
         <div className="row mb-4">
           <div className="col-lg-2 col-md-3 col-sm-6 mb-4">
-            {/* <h6 className="fw-bold mb-3 text-white">Real Estate</h6> */}
             <ul className="list-unstyled">
-               </ul>
+            </ul>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-6 mb-4">
             <h6 className="fw-bold mb-3 text-white">Rentals</h6>
@@ -21,12 +19,12 @@ const Footer: React.FC = () => {
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Apartments for rent</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Houses for rent</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">All Rental Listings</a></li>
-               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Buy</a></li>
+              <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Buy</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Rent</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Sell</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Home Loans</a></li>
               <li className="mb-2"><a href="#" className="text-white-50 text-decoration-none small">Agent finder</a></li>
-          
+
             </ul>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-6 mb-4">
@@ -66,7 +64,7 @@ const Footer: React.FC = () => {
         <div className="row align-items-center mb-4">
           <div className="col-md-6">
             <div className="d-flex gap-3">
-          {/*     <img src={appstore} alt="App Store" className="img-fluid" />
+              {/*     <img src={appstore} alt="App Store" className="img-fluid" />
               <img src={googleplay} alt="Google Play" className="img-fluid" /> */}
             </div>
           </div>

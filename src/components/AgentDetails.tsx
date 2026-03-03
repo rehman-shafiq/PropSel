@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './AgentDetails.css';
 
 const AgentDetails: React.FC = () => {
+  /* States */
   const { state } = useLocation();
   const navigate = useNavigate();
   const agent = state?.agent;

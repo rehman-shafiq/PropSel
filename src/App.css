@@ -3,9 +3,7 @@
   padding: 0;
   width: 100%;
 }
-
 body {
-  /* match the new global background; override earlier styles */
   background-color: #1F2937 !important;
   margin: 0 !important;
   padding: 0 !important;

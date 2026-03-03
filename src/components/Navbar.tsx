@@ -4,22 +4,21 @@ import Propsellogo from '../assets/propsellogo.png';
 import './Navbar.css';
 
 const PropSelNavbar: React.FC = () => {
+    /* States */
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     const [showBuyDropdown, setShowBuyDropdown] = useState(false);
-
     const handleClose = () => setShowOffcanvas(false);
     const handleShow = () => setShowOffcanvas(true);
-
     const handleBuyMouseEnter = () => setShowBuyDropdown(true);
     const handleBuyMouseLeave = () => setShowBuyDropdown(false);
 
     return (
         <Navbar
-            expand="lg"    
+            expand="lg"
             variant="dark"
             className="py-4  navbar-expand-lg shadow-sm w-100 "
-            style={{ 
-                backgroundColor: '#212529', 
+            style={{
+                backgroundColor: '#212529',
                 position: 'fixed',
                 top: 0,
                 left: 0,
@@ -33,29 +32,29 @@ const PropSelNavbar: React.FC = () => {
 
                 {/* 1. Mobile Toggle & Left Side (Grouped for desktop) */}
                 <div className="d-flex align-items-center border-white ">
-                    <Button 
-                        variant="link" 
-                        className="border-0 shadow-none me-2 p-0 d-lg-none" 
+                    <Button
+                        variant="link"
+                        className="border-0 shadow-none me-2 p-0 d-lg-none"
                         style={{ color: 'white' }}
                         onClick={handleShow}
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </Button>
-                    
+
                     <Navbar.Collapse id="zillow-nav-content" className="d-lg-block">
                         <Nav className="mt-5 mt-lg-0 d-lg-flex mx-5">
-                            <NavDropdown   
+                            <NavDropdown
                                 title="Buy"
                                 id="buy-nav-dropdown"
                                 show={showBuyDropdown}
                                 onMouseEnter={handleBuyMouseEnter}
                                 onMouseLeave={handleBuyMouseLeave}
-                                className="px-2 fw-normal text-white custom-nav-dropdown"
-                                style={{marginRight:'1rem'}}
-                            >                               
-                                    <NavDropdown.Item href="#">Housing Society</NavDropdown.Item>
-                                <NavDropdown.Item href="#">High Rise</NavDropdown.Item>                 
+                                className="px-2 fw-normal text-white custom-nav-dropdown "
+                                style={{ marginRight: '1rem' }}
+                            >
+                                <NavDropdown.Item href="/housing-society">Housing Society</NavDropdown.Item>
+                                <NavDropdown.Item href="/high-rise">High Rise</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="/find-agent" className="px-3 fw-normal text-light">Find an agent</Nav.Link>
                         </Nav>
@@ -63,8 +62,8 @@ const PropSelNavbar: React.FC = () => {
                 </div>
 
                 {/* 2. Brand Logo (Absolute Center) */}
-                <Navbar.Brand 
-                    href="/" 
+                <Navbar.Brand
+                    href="/"
                     className="p-0 m-0"
                     style={{
                         position: 'absolute',
@@ -80,31 +79,28 @@ const PropSelNavbar: React.FC = () => {
                         height="35"
                     />
                 </Navbar.Brand>
-                                {/* 3. Right Side (Sign In) */}
+                {/* 3. Right Side (Sign In) */}
                 <div className="d-flex align-items-center">
-                  
-                    
+
+
                     <Button
+                        href="https://propsel.com/register"
                         className="rounded-pill px-4 me-4 py-2 me-5  d-flex d-lg-block btn-success"
                         style={{
-                          /*   backgroundColor: '#007BFF', */
                             color: 'white',
                             fontSize: '12px'
                         }}
-                   
+
                     >
                         Register
                     </Button>
                 </div>
-
-
-
             </Container>
 
             {/* Mobile Offcanvas Menu */}
-            <Offcanvas 
-                show={showOffcanvas} 
-                onHide={handleClose} 
+            <Offcanvas
+                show={showOffcanvas}
+                onHide={handleClose}
                 placement="start"
                 className="w-100"
                 style={{ backgroundColor: '#212529', color: 'white' }}
@@ -117,15 +113,15 @@ const PropSelNavbar: React.FC = () => {
                             height="30"
                         />
                     </Offcanvas.Title>
-                    <Button 
-                        variant="link" 
+                    <Button
+                        variant="link"
                         onClick={handleClose}
                         className="text-white p-0 ms-auto"
                         style={{ fontSize: '24px', lineHeight: '1' }}
                     >
                         ×
                     </Button>
-                    
+
                 </Offcanvas.Header>
                 <Offcanvas.Body className="p-0">
                     <Nav className="flex-column p-3">
@@ -133,9 +129,9 @@ const PropSelNavbar: React.FC = () => {
                             <strong>Buy</strong>
                         </Nav.Link>
                         <div className="ms-3">
-                          <Nav.Link href="#" className="text-white py-2" onClick={handleClose}>Housing Society</Nav.Link>
-                          <Nav.Link href="#" className="text-white py-2" onClick={handleClose}>High Rise</Nav.Link>
-                        </div>                 
+                            <Nav.Link href="#" className="text-white py-2" onClick={handleClose}>Housing Society</Nav.Link>
+                            <Nav.Link href="#" className="text-white py-2" onClick={handleClose}>High Rise</Nav.Link>
+                        </div>
                         <Nav.Link href="#" className="text-white py-3 border-bottom border-secondary" onClick={handleClose}>
                             <strong>Find an Agent</strong>
                         </Nav.Link>

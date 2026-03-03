@@ -1,4 +1,4 @@
-/* Card ki base styling */
+/
 .agent-card {
   transition: all 0.3s ease-in-out;
   border: 1px solid #e8e8ef !important;
@@ -8,12 +8,11 @@
   border-radius: 12px;
 }
 
-/* Hover Effect: Light Sky Blue Background aur Thora Utha hua Shadow */
+
 .agent-card:hover {
-  transform: translateY(-5px); /* Card thora upar uthega */
-  background-color: #f0f7ff !important; /* Light Sky Blue / Zillow Blue tint */
-  /* Border blue ho jayega */
-  box-shadow: 0 12px 24px rgba(0, 106, 255, 0.15) !important; /* Blueish shadow */
+  transform: translateY(-5px); 
+  background-color: #f0f7ff !important; 
+  box-shadow: 0 12px 24px rgba(0, 106, 255, 0.15) !important; 
 }
 
 /* Star Rating ka color */

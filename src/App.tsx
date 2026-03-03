@@ -6,6 +6,8 @@ import FindAnAgent from './components/FindAnAgent';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from 'lucide-react';
 import AgentDetails from './components/AgentDetails';
+import HousingPage from './components/HousingPage';
+import HighRisePage from './components/HighRise';
 
 const App: React.FC = () => {
   return (
@@ -20,7 +22,9 @@ const App: React.FC = () => {
               <Route path="/home" element={<Home />} />
               <Route path="/" element={<FindAnAgent />} />
               <Route path="/agent/:id" element={<AgentDetails />} />
-
+              <Route path="/" element={<div>Home Page (Hero Section)</div>} />
+              <Route path="/housing-society" element={<HousingPage />} />
+              <Route path="/high-rise" element={<HighRisePage />} />
             </Routes>
           </main>
           <Footer />

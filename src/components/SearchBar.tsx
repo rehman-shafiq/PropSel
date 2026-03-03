@@ -8,10 +8,12 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({
   placeholder = 'Enter an address, neighborhood, city, or ZIP code'
 }) => {
+  
+  /* States */
   const [focused, setFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  // close dropdown when clicking outside the component
+ /* Hooks */
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (

@@ -12,7 +12,7 @@ const FAQ: React.FC = () => {
         <div className="accordion-item p-2 mb-2 bg-transparent border-secondary" key={faq.id}>
           <h2 className="accordion-header" id={`heading${index}`}>
             <button 
-              className={`accordion-button ${index === 0 ? '' : 'collapsed'}`} // Fix: Pehla button open, baaki collapsed class ke sath
+              className={`accordion-button ${index === 0 ? '' : 'collapsed'}`} 
               type="button" 
               data-bs-toggle="collapse" 
               data-bs-target={`#collapse${index}`} 
