@@ -124,32 +124,33 @@ const PropSelNavbar: React.FC = () => {
 
                 </Offcanvas.Header>
                 <Offcanvas.Body className="p-0">
-                    <Nav className="flex-column p-0"> {/* Padding zero ki taake full width click ho */}
+    <Nav className="flex-column p-0 mt-4"> 
 
-                        {/* Clickable "Buy" Dropdown for Mobile */}
-                        <NavDropdown
-                            title={<strong>Buy</strong>}
-                            id="offcanvas-buy-dropdown"
-                            className="mobile-nav-dropdown border-bottom border-secondary text-white px-3 py-1"
-                        >
-                            <NavDropdown.Item href="/housing-society" onClick={handleClose}>
-                                Housing Society
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="/high-rise" onClick={handleClose}>
-                                High Rise
-                            </NavDropdown.Item>
-                        </NavDropdown>
+        {/* Custom Mobile Dropdown */}
+        <NavDropdown
+            title="Buy"
+            id="offcanvas-buy-dropdown"
+            className="mobile-custom-dropdown px-4 py-3"
+            menuVariant="dark"
+        >
+            <NavDropdown.Item href="/housing-society" onClick={handleClose}>
+                Housing Society
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/high-rise" onClick={handleClose}>
+                High Rise
+            </NavDropdown.Item>
+        </NavDropdown>
 
-                        {/* Normal Links */}
-                        <Nav.Link
-                            href="/find-agent"
-                            className="text-white py-3 px-3 border-bottom border-secondary"
-                            onClick={handleClose}
-                        >
-                            <strong>Find an Agent</strong>
-                        </Nav.Link>
-                    </Nav>
-                </Offcanvas.Body>
+        {/* Normal Link */}
+        <Nav.Link
+            href="/find-agent"
+            className="text-white py-3 px-4"
+            onClick={handleClose}
+        >
+            <p className="">Find an Agent</p>
+        </Nav.Link>
+    </Nav>
+</Offcanvas.Body>
             </Offcanvas>
         </Navbar>
     );

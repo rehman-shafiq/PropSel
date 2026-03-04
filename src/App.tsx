@@ -9,6 +9,8 @@ import AgentDetails from './components/AgentDetails';
 import HousingPage from './components/HousingPage';
 import HighRisePage from './components/HighRise';
 
+import HousingSocietyDetails from './components/HosuingSocietyDetails';
+
 const App: React.FC = () => {
   return (
     <>
@@ -25,7 +27,11 @@ const App: React.FC = () => {
               <Route path="/" element={<div>Home Page (Hero Section)</div>} />
               <Route path="/housing-society" element={<HousingPage />} />
               <Route path="/high-rise" element={<HighRisePage />} />
-            </Routes>
+              
+                <Route path="/" element={<HousingPage />} />
+
+                <Route path="/property/:id" element={<HousingSocietyDetails />} />
+              </Routes>
           </main>
           <Footer />
         </div>

@@ -1,14 +1,26 @@
 import React from 'react';
 import { Card, Badge } from 'react-bootstrap';
-import type { Property } from './types'; // fix
+import { useNavigate } from 'react-router-dom'; // Import Navigate
+import type { Property } from './types';
 
 const PropertyCard: React.FC<{ data: Property }> = ({ data }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // Navigate to details page with data
+    navigate(`/property/${data.id}`, { state: { data } });
+  };
+
   return (
-    <Card className="border-0 shadow-sm rounded-0 h-100 overflow-hidden">
+    <Card 
+      className="border-0 shadow-sm rounded-0 h-100 overflow-hidden property-card-hover"
+      onClick={handleClick} 
+      style={{ cursor: 'pointer', transition: '0.3s' }}
+    >
       <div className="position-relative">
         <Card.Img variant="top" src={data.image} style={{ height: '180px', objectFit: 'cover' }} />
         <Badge bg="white" text="dark" className="position-absolute top-0 start-0 m-2 border shadow-sm">
-          {data.project}
+          {data.project} 
         </Badge>
       </div>
       <Card.Body className="p-2">

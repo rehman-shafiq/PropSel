@@ -1,16 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, } from 'react-bootstrap';
 import PropertyCard from './Property';
 import type { Property } from './types';
 
 const HighRisePage: React.FC = () => {
-
   /* States */
   const [searchLoc, setSearchLoc] = useState('');
   const [devFilter, setDevFilter] = useState('All Developers');
-  const [projFilter, setProjFilter] = useState('All Projects');
 
-  /* Hooks */
+  /* Projects Data */
   const [projects] = useState<Property[]>([
     {
       id: 101, category: 'high-rise', price: 8500000, displayPrice: 'Starting from PKR 85 Lac',
@@ -32,48 +30,51 @@ const HighRisePage: React.FC = () => {
     }
   ]);
 
-
+  /* Hooks */
   const filteredProjects = useMemo(() => {
     return projects.filter(p => {
       const matchLoc = p.location.toLowerCase().includes(searchLoc.toLowerCase());
       const matchDev = devFilter === 'All Developers' || p.developer === devFilter;
-      const matchProj = projFilter === 'All Projects' || p.project === projFilter;
-      return matchLoc && matchDev && matchProj;
+      return matchLoc && matchDev;
     });
-  }, [searchLoc, devFilter, projFilter, projects]);
+  }, [searchLoc, devFilter, projects]);
+
+  const groupedData = useMemo(() => {
+    const groups: { [key: string]: Property[] } = {};
+    filteredProjects.forEach(proj => {
+      if (!groups[proj.developer]) {
+        groups[proj.developer] = [];
+      }
+      groups[proj.developer].push(proj);
+    });
+    return groups;
+  }, [filteredProjects]);
 
   return (
     <div className="bg-light min-vh-100">
-      {/* Search Header Style */}
-      <div className="text-white py-5 mb-4" style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
+      {/* Header Section */}
+      <div className="text-white py-5 mb-5" style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
         <Container>
-          <h2 className="fw-bold mb-4 text-center mt-5">New High Rise Projects</h2>
-          <div className="bg-white p-3 rounded shadow">
+          <h2 className="fw-bold mb-4 text-center mt-5 pt-5">High Rise Projects</h2>
+          <div className="bg-white p-3 rounded shadow mx-auto" style={{ maxWidth: '800px' }}>
             <Row className="g-2">
-              <Col md={4}>
+              <Col md={7}>
                 <Form.Control
                   placeholder="Search by Location..."
-                  className="py-2"
                   value={searchLoc}
                   onChange={(e) => setSearchLoc(e.target.value)}
                 />
               </Col>
-              <Col md={3}>
-                <Form.Select className="py-2" onChange={(e) => setDevFilter(e.target.value)}>
-                  <option>All Developers</option>
-                  <option>Emaar Pakistan</option>
-                  <option>Lucky One Group</option>
-                  <option>Imarat Group</option>
+              <Col md={5}>
+                <Form.Select
+                  value={devFilter}
+                  onChange={(e) => setDevFilter(e.target.value)}
+                >
+                  <option value="All Developers">All Developers</option>
+                  <option value="Emaar Pakistan">Emaar Pakistan</option>
+                  <option value="Lucky One Group">Lucky One Group</option>
+                  <option value="Imarat Group">Imarat Group</option>
                 </Form.Select>
-              </Col>
-              <Col md={3}>
-                <Form.Select className="py-2" onChange={(e) => setProjFilter(e.target.value)}>
-                  <option>All Projects</option>
-                  {projects.map(p => <option key={p.id}>{p.project}</option>)}
-                </Form.Select>
-              </Col>
-              <Col md={2}>
-                <Button variant="success" className="w-100 py-2 fw-bold">Find Projects</Button>
               </Col>
             </Row>
           </div>
@@ -81,24 +82,37 @@ const HighRisePage: React.FC = () => {
       </div>
 
       <Container>
-        <div className="d-flex align-items-center mb-4">
-          <div className="bg-success me-2" style={{ width: '5px', height: '30px' }}></div>
-          <h4 className="fw-bold m-0">Featured High Rise Developments</h4>
-          <small className="ms-auto text-muted fw-bold">{filteredProjects.length} Projects Found</small>
-        </div>
+        {Object.keys(groupedData).length > 0 ? (
+          Object.entries(groupedData).map(([developer, devProjects]) => (
+            <div key={developer} className="mb-5">
 
-        <Row xs={1} md={2} lg={3} className="g-4 pb-5">
-          {filteredProjects.map((proj) => (
-            <Col key={proj.id}>
-              <PropertyCard data={proj} />
-            </Col>
-          ))}
-          {filteredProjects.length === 0 && (
-            <Col xs={12} className="text-center py-5">
-              <h5 className="text-muted">No Projects Found</h5>
-            </Col>
-          )}
-        </Row>
+              {/* Dynamic Developer Heading */}
+              <div className="d-flex align-items-center mb-4">
+                <div className="bg-success me-2" style={{ width: '6px', height: '30px', borderRadius: '2px' }}></div>
+                <h4 className="fw-bold m-0">Developed by {developer}</h4>
+                <div className="ms-auto text-muted small fw-bold">
+                  {devProjects.length} {devProjects.length > 1 ? 'Projects' : 'Project'} Found
+                </div>
+              </div>
+
+              {/* Grid for this Developer's Cards */}
+              <Row xs={1} md={2} lg={3} className="g-4">
+                {devProjects.map((proj) => (
+                  <Col key={proj.id}>
+                    <PropertyCard data={proj} />
+                  </Col>
+                ))}
+              </Row>
+
+              {/* Divider between developers */}
+              <hr className="mt-5 opacity-25" />
+            </div>
+          ))
+        ) : (
+          <div className="text-center py-5">
+            <h5 className="text-muted">No results found for your search.</h5>
+          </div>
+        )}
       </Container>
     </div>
   );

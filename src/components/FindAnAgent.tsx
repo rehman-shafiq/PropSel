@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './FindAnAgent.css';
 import FAQ from './FAQ';
 
-// Types define karna zaroori hai
+// Types
 interface Agent {
   id: number;
   name: string;
@@ -19,17 +19,19 @@ interface Agent {
   isTeam: boolean;
 }
 
-const FindAnAgent: React.FC = () => {
+// Search Types definition
+type SearchCategory = 'Name' | 'City' | 'Country';
 
+const FindAnAgent: React.FC = () => {
   /* States */
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchType, setSearchType] = useState<'Location' | 'Name'>('Location');
+  const [searchType, setSearchType] = useState<SearchCategory>('City'); // Default set to City
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  /* Hooks */
 
-    useEffect(() => {
+  /* Hooks */
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
@@ -39,7 +41,6 @@ const FindAnAgent: React.FC = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-
   const allAgents: Agent[] = [
     { id: 1, name: "Matt Laricy", city: "Chicago", country: "USA", rating: 5.0, reviewCount: 1872, priceRange: "$440k - $1.2M", salesLast12Months: 184, totalSales: 3429, imageUrl: "https://i.pravatar.cc/150?u=1", location: "Chicago, IL", isTeam: true },
     { id: 2, name: "Patrick Shino", city: "Chicago", country: "USA", rating: 4.9, reviewCount: 1214, priceRange: "$230k - $2.7M", salesLast12Months: 114, totalSales: 527, imageUrl: "https://i.pravatar.cc/150?u=2", location: "Chicago, IL", isTeam: true },
@@ -48,18 +49,19 @@ const FindAnAgent: React.FC = () => {
     { id: 8, name: "Ayesha Malik", city: "Islamabad", country: "Pakistan", rating: 4.9, reviewCount: 54, priceRange: "PKR 15M - 120M", salesLast12Months: 18, totalSales: 89, imageUrl: "https://i.pravatar.cc/150?u=8", location: "Emaar Canyon Views, Islamabad", isTeam: false }
   ];
 
-  // Advanced Filter Logic
+  // Logic: Specific Filter Based on searchType
   const filteredAgents = allAgents.filter(agent => {
-    const term = searchTerm.toLowerCase();
+    const term = searchTerm.toLowerCase().trim();
+    if (!term) return true;
+
     if (searchType === 'Name') {
       return agent.name.toLowerCase().includes(term);
-    } else {
-      return (
-        agent.city.toLowerCase().includes(term) || 
-        agent.country.toLowerCase().includes(term) || 
-        agent.location.toLowerCase().includes(term)
-      );
+    } else if (searchType === 'City') {
+      return agent.city.toLowerCase().includes(term);
+    } else if (searchType === 'Country') {
+      return agent.country.toLowerCase().includes(term);
     }
+    return true;
   });
 
   return (
@@ -71,20 +73,28 @@ const FindAnAgent: React.FC = () => {
           <div className="search-card">
             <p className="search-label">Find a real estate agent</p>
             <div className="search-bar-wrapper shadow-sm">
+              
+              {/* Refined Dropdown */}
               <div className="dropdown" ref={dropdownRef}>
                 <button className="dropdown-toggle-btn" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                  {searchType}
+                  {searchType} <i className="bi bi-chevron-down ms-1" style={{fontSize: '0.8rem'}}></i>
                 </button>
+                
                 <ul className={`dropdown-custom-menu ${isDropdownOpen ? 'show' : ''}`}>
-                  <li onClick={() => { setSearchType('Location'); setIsDropdownOpen(false); }}>Location</li>
+                  <li className="dropdown-header text-uppercase" style={{fontSize: '10px', color: '#999', padding: '5px 15px'}}>Search By</li>
                   <li onClick={() => { setSearchType('Name'); setIsDropdownOpen(false); }}>Name</li>
+                  <hr className="m-0" />
+                  <li className="dropdown-header text-uppercase" style={{fontSize: '10px', color: '#999', padding: '5px 15px'}}>Location</li>
+                  <li onClick={() => { setSearchType('City'); setIsDropdownOpen(false); }}>City</li>
+                  <li onClick={() => { setSearchType('Country'); setIsDropdownOpen(false); }}>Country</li>
                 </ul>
               </div>
+
               <div className="search-input-group">
-                <i className={`bi ${searchType === 'Location' ? 'bi-geo-alt' : 'bi-person'} input-icon`}></i>
+                <i className={`bi ${searchType === 'Name' ? 'bi-person' : 'bi-geo-alt'} input-icon`}></i>
                 <input 
                   type="text" 
-                  placeholder={searchType === 'Location' ? "City, Country, or Neighborhood..." : "Enter agent name..."}
+                  placeholder={`Search by ${searchType.toLowerCase()}...`}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -95,10 +105,11 @@ const FindAnAgent: React.FC = () => {
         </div>
       </section>
 
+      {/* Agents Listing Section */}
       <div className="container py-5 mt-4">
         <div className="d-flex justify-content-between align-items-center mb-5">
           <h3 className="fw-bold text-light m-0">
-            {searchTerm && searchType === 'Location' ? `Agents in ${searchTerm}` : "Top Rated Real Estate Agents"}
+            {searchTerm ? `Results for ${searchTerm}` : "Top Rated Real Estate Agents"}
           </h3>
           <span className="text-muted">{filteredAgents.length} Agents Found</span>
         </div>
@@ -109,12 +120,12 @@ const FindAnAgent: React.FC = () => {
               <div 
                 className="card h-100 p-3 agent-card shadow-sm border-0" 
                 onClick={() => navigate(`/agent/${agent.id}`, { state: { agent } })}
-                style={{ cursor: 'pointer', transition: '0.3s' }}
+                style={{ cursor: 'pointer' }}
               >
                 <div className="d-flex gap-3">
                   <div className="agent-img-container text-center">
                     <img src={agent.imageUrl} className="agent-img" alt={agent.name} style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover' }} />
-                    {agent.isTeam && <div className="team-badge" style={{ fontSize: '10px', background: '#eee', marginTop: '5px' }}>TEAM</div>}
+                    {agent.isTeam && <div className="team-badge" style={{ fontSize: '10px', background: '#eee', marginTop: '5px', padding: '2px 5px' }}>TEAM</div>}
                   </div>
                   <div className="flex-grow-1">
                     <div className="d-flex justify-content-between align-items-start">
@@ -139,9 +150,10 @@ const FindAnAgent: React.FC = () => {
               </div>
             </div>
           ))}
+          
           {filteredAgents.length === 0 && (
             <div className="col-12 text-center py-5 text-light">
-              <h5>No agents found matching your search.</h5>
+              <h5>No agents found in {searchTerm}.</h5>
             </div>
           )}
         </div>
