@@ -3,9 +3,8 @@
   padding: 0;
   width: 100%;
 }
-
 body {
-  background-color: rgb(33, 37, 41) !important;
+  background-color: #1F2937 !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -14,6 +13,7 @@ html, body {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow-x: hidden;
 }
 
 .logo {

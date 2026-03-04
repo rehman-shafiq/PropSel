@@ -6,44 +6,45 @@ import AgentCard from './AgentCard';
 import ServiceCard from './ServiceCard';
 import RealtorCTA from './RealtorCTA';
 import FAQ from './FAQ';
-import Footer from './Footer';
+
 import { properties, agents, services } from './data';
 
 const LandingPage: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <section className="py-5 bg-light">
-        <div className="container-fluid px-4">
-          <h2 className="fw-bold mb-4">Featured Properties</h2>
-          <div className="row">
+      <div style={{ paddingTop: '80px' }}>
+        <Hero />
+      <section className="py-5 " style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
+        <div className="container-fluid px-4 ">
+          <h2 className="fw-bold mb-4 text-light text-center">Featured Properties</h2>
+          <div className="row p-5 justify-content-center">
             {properties.map(property => (
-              <div className="col-lg-3 col-md-6 mb-4" key={property.id}>
+              <div className="col-lg-3 col-md-6 mb-4 m-3 " key={property.id}>
                 <PropertyCard property={property} />
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="py-5">
-        <div className="container-fluid px-4">
-          <h2 className="fw-bold mb-4">Find Top Rated Agents</h2>
-          <div className="row">
+      <section className=" " style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
+        <div className="container-fluid ">
+          <h2 className="fw-bold mb-4 text-light text-center ">Find Top Rated Agents</h2>
+          <div className="row  p-5 justify-content-center">
             {agents.map(agent => (
-              <div className="col-lg-3 col-md-6 mb-4" key={agent.id}>
+              <div className="col-lg-3 col-md-6  m-3 " key={agent.id}>
                 <AgentCard agent={agent} />
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="py-5 bg-light">
+      <section className="py-5" style={{ backgroundColor: 'rgb(31, 41, 55)' }}>
         <div className="container-fluid px-4">
-          <h2 className="fw-bold mb-4 text-center">Our Services</h2>
-          <div className="row">
+          <h2 className="fw-bold mb-4 text-center text-light">Our Services</h2>
+          <div className="row justify-content-center">
             {services.map(service => (
-              <div className="col-lg-3 col-md-6 mb-4" key={service.id}>
+              <div className="col-lg-3 col-md-6 mb-4 " key={service.id}>
                 <ServiceCard service={service} />
               </div>
             ))}
@@ -52,7 +53,7 @@ const LandingPage: React.FC = () => {
       </section>
       <RealtorCTA />
       <FAQ />
-      <Footer />
+      </div>
     </div>
   );
 };

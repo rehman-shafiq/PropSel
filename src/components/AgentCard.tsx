@@ -17,7 +17,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ agent }) => {
             <Star key={i} size={16} fill="#FFD700" color="#FFD700" />
           ))}
         </div>
-        <button className="btn btn-outline-primary btn-sm">Contact Agent</button>
+        <button className="btn  btn-sm btn-success text-white border-0">Contact Agent</button>
       </div>
     </div>
   );

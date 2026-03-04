@@ -7,29 +7,24 @@ export const properties: IProperty[] = [
   { id: 4, price: '$450,000', beds: 2, baths: 2, sqft: '1,500 sqft', address: '321 Elm St, Riverside', img: 'https://images.unsplash.com/photo-1580587767526-cf3a701ae294?auto=format&fit=crop&w=800&q=80' },
   { id: 5, price: '$800,000', beds: 5, baths: 4, sqft: '2,800 sqft', address: '654 Maple Ln, Mountain View', img: 'https://images.unsplash.com/photo-1580587767526-cf3a701ae294?auto=format&fit=crop&w=800&q=80' },
   { id: 6, price: '$550,000', beds: 3, baths: 2, sqft: '1,700 sqft', address: '987 Cedar Dr, Beachfront', img: 'https://images.unsplash.com/photo-1580587767526-cf3a701ae294?auto=format&fit=crop&w=800&q=80' },
-  { id: 7, price: '$650,000', beds: 4, baths: 3, sqft: '2,100 sqft', address: '147 Birch Ave, City Center', img: 'https://images.unsplash.com/photo-1580587767526-cf3a701ae294?auto=format&fit=crop&w=800&q=80' },
-  { id: 8, price: '$700,000', beds: 4, baths: 3, sqft: '2,300 sqft', address: '258 Willow St, Countryside', img: 'https://images.unsplash.com/photo-1580587767526-cf3a701ae294?auto=format&fit=crop&w=800&q=80' },
 ];
 
 export const agents: IAgent[] = [
   { id: 1, name: 'John Doe', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 2, name: 'Jane Smith', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 3, name: 'Mike Johnson', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
-  { id: 4, name: 'Sarah Wilson', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 5, name: 'David Brown', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 6, name: 'Emily Davis', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 7, name: 'Chris Miller', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
-  { id: 8, name: 'Lisa Garcia', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 9, name: 'Tom Anderson', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 10, name: 'Anna Martinez', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
   { id: 11, name: 'Robert Lee', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
-  { id: 12, name: 'Karen White', rating: 5, img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80' },
 ];
 
 export const services: IService[] = [
   { id: 1, title: 'Buy a home', description: 'Find your place with an immersive photo experience and the most listings, including things you won\'t find anywhere else.', link: 'Find a local agent', icon: 'Home' },
   { id: 2, title: 'Rent a home', description: 'We\'re creating a seamless online experience – from shopping on the largest rental network, to applying, to paying rent.', link: 'Find rentals', icon: 'Key' },
-  { id: 3, title: 'Sell a home', description: 'No matter what path you take to sell your home, we can help you navigate a successful sale.', link: 'See your options', icon: 'TrendingUp' },
+  { id: 3, title: 'Sell a home', description: 'No matter what path you take to sell your home, we can help you navigate a successful sale. We\'ll guide you every step of the way.', link: 'See your options', icon: 'TrendingUp' },
 ];
 
 export const faqs: IFAQ[] = [
